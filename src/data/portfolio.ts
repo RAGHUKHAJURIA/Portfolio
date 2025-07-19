@@ -5,10 +5,10 @@ export const projects: Project[] = [
     id: 1,
     title: "Docly",
     description: "A full-stack applicadtion for the doctor appointment system.",
-    image: "./../../dist/assets/docly.png",
+    image: "/images/docly.png",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
     githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    liveUrl: "https://doc-one-tau.vercel.app/login",
     category: "Full Stack"
   },
     

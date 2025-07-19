@@ -74,7 +74,7 @@ export const Hero: React.FC = () => {
             >
               <div className="relative inline-block">
                 <motion.img
-                  src="./../../dist/assets/profile.jpg"
+                  src="/../dist/assets/profile.jpg"
                   alt="Profile"
                   className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-blue-400/30 shadow-2xl shadow-blue-500/20"
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -115,13 +115,7 @@ export const Hero: React.FC = () => {
                 variant="outline"
                 size="md"
                 className="rounded-lg px-4 py-2"
-                // IMPORTANT: If this path doesn't work, try other common paths:
-                // 1. If your resume is directly in the 'public' folder: '/Raghu_Khajuria_Resume.pdf'
-                // 2. If your resume is in 'public/assets/': '/assets/Raghu_Khajuria_Resume.pdf' (current)
-                // 3. If your build output structure changes, check the final deployed path.
-                onClick={() =>
-                  window.open("/Raghu_Khajuria_Resume.pdf", "_blank")
-                } // Changed path to direct root
+                onClick={() => window.open("/documents/my-resume.pdf", "_blank")} 
               >
                 <Download className="mr-2" size={18} />
                 Download Resume
