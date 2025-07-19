@@ -12,13 +12,13 @@ const navItems = [
 
 export const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const activeSection = useScrollSpy(navItems.map(item => item.id), 100);
+  const activeSection = useScrollSpy(navItems.map((item) => item.id), 100);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false); // Close mobile menu after clicking
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => setIsOpen(false), 200); // Close mobile menu after scroll
     }
   };
 
@@ -29,6 +29,7 @@ export const Navigation: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Logo */}
           <motion.div
             className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05, rotate: 1 }}
@@ -37,7 +38,7 @@ export const Navigation: React.FC = () => {
             Portfolio
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <motion.button
@@ -56,52 +57,53 @@ export const Navigation: React.FC = () => {
                   <motion.div
                     layoutId="activeTab"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
                 )}
               </motion.button>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg bg-gray-800/50 text-gray-300 border border-gray-700/50"
-              whileHover={{ scale: 1.1, rotate: 90 }}
-              transition={{ duration: 0.3 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
-        <motion.div
-          initial={false}
-          animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-          className="md:hidden overflow-hidden"
-        >
-          <div className="py-4 space-y-2">
-            {navItems.map((item) => (
-              <motion.button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
-                  activeSection === item.id
-                    ? 'bg-blue-500/20 text-blue-400'
-                    : 'text-gray-300 hover:bg-gray-700/50'
-                }`}
-                whileHover={{ scale: 1.02, x: 5 }}
-                transition={{ duration: 0.2 }}
-              >
-                {item.label}
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
+        {/* Mobile Menu Items */}
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden overflow-hidden"
+          >
+            <div className="py-4 space-y-2">
+              {navItems.map((item) => (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                    activeSection === item.id
+                      ? 'bg-blue-500/20 text-blue-400'
+                      : 'text-gray-300 hover:bg-gray-700/50'
+                  }`}
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );
