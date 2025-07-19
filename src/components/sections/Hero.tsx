@@ -74,7 +74,7 @@ export const Hero: React.FC = () => {
             >
               <div className="relative inline-block">
                 <motion.img
-                  src="/../dist/assets/profile.jpg"
+                  src="/images/profile.jpg"
                   alt="Profile"
                   className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-blue-400/30 shadow-2xl shadow-blue-500/20"
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -115,7 +115,9 @@ export const Hero: React.FC = () => {
                 variant="outline"
                 size="md"
                 className="rounded-lg px-4 py-2"
-                onClick={() => window.open("/documents/my-resume.pdf", "_blank")} 
+                onClick={() =>
+                  window.open("/documents/my-resume.pdf", "_blank")
+                }
               >
                 <Download className="mr-2" size={18} />
                 Download Resume
