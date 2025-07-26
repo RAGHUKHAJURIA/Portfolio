@@ -115,9 +115,7 @@ export const Hero: React.FC = () => {
                 variant="outline"
                 size="md"
                 className="rounded-lg px-4 py-2"
-                onClick={() =>
-                  window.open("/documents/my-resume.pdf", "_blank")
-                }
+                onClick={() => window.open("/my-resume.pdf", "_blank")}
               >
                 <Download className="mr-2" size={18} />
                 Download Resume
