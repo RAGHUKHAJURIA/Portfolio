@@ -18,7 +18,7 @@ export const Navigation: React.FC = () => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => setIsOpen(false), 200); // Close mobile menu after scroll
+      setTimeout(() => setIsOpen(false), 200); 
     }
   };
 
@@ -38,7 +38,7 @@ export const Navigation: React.FC = () => {
             Portfolio
           </motion.div>
 
-          {/* Desktop Menu */}
+         
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <motion.button
@@ -64,7 +64,7 @@ export const Navigation: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Toggle */}
+         
           <div className="md:hidden flex items-center">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
@@ -77,7 +77,7 @@ export const Navigation: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Items */}
+        
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}

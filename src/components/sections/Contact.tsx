@@ -17,7 +17,7 @@ export const Contact: React.FC = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Simulate API call
+      
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success("Message sent successfully! I'll get back to you soon.", {
@@ -90,7 +90,7 @@ export const Contact: React.FC = () => {
           </motion.div>
 
           <div className="gap-12">
-            {/* Contact Form */}
+            
             <motion.div variants={itemVariants}>
               <Card>
                 <h3 className="text-2xl font-bold mb-6 text-white">
@@ -197,7 +197,7 @@ export const Contact: React.FC = () => {
               </Card>
             </motion.div>
 
-            {/* Contact Information */}
+            
             
           </div>
         </motion.div>

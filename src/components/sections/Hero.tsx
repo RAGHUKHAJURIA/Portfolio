@@ -30,12 +30,11 @@ export const Hero: React.FC = () => {
           initial="hidden"
           animate="visible"
           transition={{ staggerChildren: 0.3 }}
-          className="text-center lg:text-left" // Align text left on larger screens
+          className="text-center lg:text-left"
         >
-          {/* Name at the very top */}
           <motion.h1
             variants={textVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 lg:mb-12" // Keep spacing for separation from content block
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 lg:mb-12"
             whileHover={{ scale: 1.02 }}
           >
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent">
@@ -43,9 +42,7 @@ export const Hero: React.FC = () => {
             </span>
           </motion.h1>
 
-          {/* Image and Info parallel section */}
           <div className="grid lg:grid-cols-2 gap-8 items-center lg:items-start mb-12">
-            {/* Title and Description (Left Column on larger screens) */}
             <div>
               <motion.p
                 variants={textVariants}
@@ -65,12 +62,11 @@ export const Hero: React.FC = () => {
               </motion.p>
             </div>
 
-            {/* Profile Image (Right Column on larger screens) */}
             <motion.div
               variants={textVariants}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.5 }}
-              className="flex justify-center lg:justify-end" // Center image on small screens, right-align on large
+              className="flex justify-center lg:justify-end"
             >
               <div className="relative inline-block">
                 <motion.img
@@ -93,7 +89,6 @@ export const Hero: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* CTA Buttons */}
           <motion.div
             variants={textVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12"
@@ -123,7 +118,6 @@ export const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Social Links */}
           <motion.div
             variants={textVariants}
             className="flex gap-6 justify-center lg:justify-start"
