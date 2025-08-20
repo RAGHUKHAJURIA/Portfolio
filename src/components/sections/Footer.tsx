@@ -5,8 +5,8 @@ import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 export const Footer: React.FC = () => {
   const socialLinks = [
     { icon: Github, href: "https://github.com/RAGHUKHAJURIA", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/raghu-khajuria-753a182b1/*", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/khajuria_raghu", label: "Twitter" },
     { icon: Mail, href: "#contact", label: "Email" },
   ];
 

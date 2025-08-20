@@ -128,7 +128,7 @@ export const Hero: React.FC = () => {
                 href: "https://github.com/RAGHUKHAJURIA",
                 label: "GitHub",
               },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/raghu-khajuria-753a182b1/*", label: "LinkedIn" },
               { icon: Mail, href: "#contact", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <motion.a
