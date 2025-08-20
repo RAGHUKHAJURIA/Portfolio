@@ -12,7 +12,7 @@ export const projects: Project[] = [
     category: "Full Stack"
   },
   {
-    id: 1,
+    id: 2,
     title: "Voice Assistant",
     description: "A Personal Voice Assistant using the Google Generative Ai, JavaScript and the Node.js for the backend",
     image: "/images/voice-assistant.png",

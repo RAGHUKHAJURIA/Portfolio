@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
-import { Send, MapPin, Phone, Mail as MailIcon } from "lucide-react";
+import { Send } from "lucide-react";
 import { Card } from "../ui/Card";
 import { Button } from "../ui/Button";
 import { ContactFormData } from "../../types";
@@ -17,37 +17,38 @@ export const Contact: React.FC = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const apiUrl = import.meta.env.VITE_SHEETDB_API_URL;
 
-      toast.success("Message sent successfully! I'll get back to you soon.", {
-        duration: 4000,
-        position: "top-center",
-        style: {
-          background: "rgba(59, 130, 246, 0.1)",
-          backdropFilter: "blur(10px)",
-          border: "1px solid rgba(59, 130, 246, 0.2)",
-          color: "#1f2937",
+      if (!apiUrl) {
+        toast.error("Google Sheet API URL is missing. Check your .env file.");
+        return;
+      }
+
+      await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          ...data,
+          timestamp: new Date().toLocaleString(),
+        }),
       });
+
+      toast.success("Your message has been sent successfully!");
 
       reset();
     } catch (error) {
-      toast.error("Failed to send message. Please try again.", {
-        duration: 4000,
-        position: "top-center",
-      });
+      console.error("Error submitting form to Google Sheet:", error);
+      toast.error("Failed to send your message. Please try again.");
     }
   };
 
+  // --- Animation Variants ---
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
   };
 
   const itemVariants = {
@@ -55,27 +56,25 @@ export const Contact: React.FC = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: "Location",
-      details: "Banglore, India",
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      details: "6006863792",
-    },
-    {
-      icon: MailIcon,
-      title: "Email",
-      details: "emaple@domain.com",
-    },
-  ];
-
   return (
     <section id="contact" className="py-20 relative">
-      <Toaster />
+      
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: "#1f2937", 
+            color: "#fff",
+            borderRadius: "8px",
+            padding: "12px 16px",
+          },
+        }}
+        containerStyle={{
+          marginTop: "80px", 
+        }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -88,16 +87,17 @@ export const Contact: React.FC = () => {
               Get In Touch
             </h2>
           </motion.div>
-
           <div className="gap-12">
-            
             <motion.div variants={itemVariants}>
               <Card>
                 <h3 className="text-2xl font-bold mb-6 text-white">
                   Send me a message
                 </h3>
-
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="space-y-6"
+                >
+                  {/* Name */}
                   <div>
                     <motion.input
                       {...register("name", { required: "Name is required" })}
@@ -118,6 +118,7 @@ export const Contact: React.FC = () => {
                     )}
                   </div>
 
+                  {/* Email */}
                   <div>
                     <motion.input
                       {...register("email", {
@@ -144,6 +145,7 @@ export const Contact: React.FC = () => {
                     )}
                   </div>
 
+                  {/* Message */}
                   <div>
                     <motion.textarea
                       {...register("message", {
@@ -166,6 +168,7 @@ export const Contact: React.FC = () => {
                     )}
                   </div>
 
+                  {/* Submit */}
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -190,15 +193,12 @@ export const Contact: React.FC = () => {
                       ) : (
                         <Send className="mr-2" size={20} />
                       )}
-                      {isSubmitting ? "Sending..." : "Send Message"}
+                      {isSubmitting ? "Saving..." : "Send Message"}
                     </Button>
                   </motion.div>
                 </form>
               </Card>
             </motion.div>
-
-            
-            
           </div>
         </motion.div>
       </div>
