@@ -11,6 +11,16 @@ export const projects: Project[] = [
     liveUrl: "https://doc-one-tau.vercel.app/login",
     category: "Full Stack"
   },
+  {
+    id: 1,
+    title: "Voice Assistant",
+    description: "A Personal Voice Assistant using the Google Generative Ai, JavaScript and the Node.js for the backend",
+    image: "/images/voice-assistant.png",
+    technologies: ["React", "Node.js", "Gen ai", "Apis"],
+    githubUrl: "https://github.com",
+    liveUrl: "https://voice-assistant-dtxb.vercel.app/",
+    category: "Gen Ai"
+  },
     
     
 

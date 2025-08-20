@@ -85,7 +85,7 @@ export const Projects: React.FC = () => {
                 variant="outline"
                 onClick={() =>
                   window.open(
-                    "https://github.com/RAGHUKHAJURIA?tab=repositories",
+                    "https://github.com/RAGHUKHAJURIA",
                     "_blank"
                   )
                 }
