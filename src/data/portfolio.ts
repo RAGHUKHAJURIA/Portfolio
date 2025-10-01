@@ -21,7 +21,17 @@ export const projects: Project[] = [
     liveUrl: "https://voice-assistant-dtxb.vercel.app/",
     category: "Gen Ai"
   },
-    
+    {
+    id: 3,
+    title: "lms",
+    description: "A complete lms website using the full mern stack",
+    image: "/images/image.png",
+    technologies: ["React", "Node.js", "Gen ai", "Apis"],
+    githubUrl: "https://github.com",
+    liveUrl: "https://education-website-zcr5.vercel.app/",
+    category: "Gen Ai"
+  },
+  
     
 
 ];
