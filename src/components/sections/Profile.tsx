@@ -67,7 +67,7 @@ export const Profile: React.FC = () => {
             <a href="https://www.linkedin.com/in/raghu-khajuria-753a182b1/" target="_blank" rel="noopener noreferrer" className="social-btn" title="LinkedIn">
               <Linkedin size={16} />
             </a>
-            <a href="mailto:raghu@example.com" className="social-btn" title="Email">
+            <a href="mailto:khajuriaraghu41@gmail.com" className="social-btn" title="Email">
               <Mail size={16} />
             </a>
           </div>

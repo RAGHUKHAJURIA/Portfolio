@@ -17,23 +17,23 @@ export const Contact: React.FC = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      const apiUrl = import.meta.env.VITE_SHEETDB_API_URL;
+      const apiUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
 
       if (!apiUrl) {
-        toast.error("Google Sheet API URL is missing. Check your .env file.");
+        toast.error("Google Script URL is missing. Check your .env file.");
         return;
       }
 
+      const formData = new URLSearchParams();
+      formData.append("name", data.name || "");
+      formData.append("email", data.email || "");
+      formData.append("message", data.message || "");
+      formData.append("timestamp", new Date().toLocaleString());
+
       await fetch(apiUrl, {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-          timestamp: new Date().toLocaleString(),
-        }),
+        mode: "no-cors",
+        body: formData,
       });
 
       toast.success("Your message has been sent successfully!");

@@ -37,7 +37,7 @@ export const AboutSection: React.FC = () => {
             <Twitter size={14} />
             Twitter
           </a>
-          <a href="mailto:raghu@example.com" className="btn">
+          <a href="mailto:khajuriaraghu41@gmail.com" className="btn">
             <Mail size={14} />
             Email
           </a>
@@ -52,7 +52,7 @@ export const AboutSection: React.FC = () => {
           If you're looking for someone passionate, skilled, and ready to contribute, I'm here to help
           bring your ideas to life!
         </p>
-        <a href="mailto:raghu@example.com" className="btn btn-primary" style={{ display: 'inline-flex' }}>
+        <a href="mailto:khajuriaraghu41@gmail.com" className="btn btn-primary" style={{ display: 'inline-flex' }}>
           <Mail size={14} />
           Hire Me
         </a>

@@ -3,7 +3,7 @@ import { Mail, Github, Twitter, Linkedin } from 'lucide-react';
 
 export const SiteFooter: React.FC = () => {
   const links = [
-    { icon: Mail, label: 'Mail', href: 'mailto:raghu@example.com' },
+    { icon: Mail, label: 'Mail', href: 'mailto:khajuriaraghu41@gmail.com' },
     { icon: Github, label: 'Github', href: 'https://github.com/RAGHUKHAJURIA' },
     { icon: Twitter, label: 'Twitter', href: 'https://x.com/khajuria_raghu' },
     { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/raghu-khajuria-753a182b1/' },
