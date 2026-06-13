@@ -4,7 +4,6 @@ import { AboutSection } from './components/sections/AboutSection';
 import { SkillsSection } from './components/sections/SkillsSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
 
-import { ContactSection } from './components/sections/ContactSection';
 import { SiteFooter } from './components/sections/SiteFooter';
 
 function App() {
@@ -27,8 +26,6 @@ function App() {
         <SkillsSection />
         <div className="divider" />
         <ProjectsSection />
-        <div className="divider" />
-        <ContactSection />
       </div>
       <SiteFooter />
     </div>

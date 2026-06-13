@@ -1,5 +1,5 @@
 import React from 'react';
-import { Twitter, Mail } from 'lucide-react';
+import { Twitter, Mail, Download } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -52,10 +52,16 @@ export const AboutSection: React.FC = () => {
           If you're looking for someone passionate, skilled, and ready to contribute, I'm here to help
           bring your ideas to life!
         </p>
-        <a href="mailto:khajuriaraghu41@gmail.com" className="btn btn-primary" style={{ display: 'inline-flex' }}>
-          <Mail size={14} />
-          Hire Me
-        </a>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <a href="mailto:khajuriaraghu41@gmail.com" className="btn btn-primary" style={{ display: 'inline-flex' }}>
+            <Mail size={14} />
+            Hire Me
+          </a>
+          <a href="/my-resume.pdf" download="Raghu_Khajuria_Resume.pdf" className="btn" style={{ display: 'inline-flex' }}>
+            <Download size={14} />
+            Download Resume
+          </a>
+        </div>
       </div>
     </div>
   );
