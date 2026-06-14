@@ -3,6 +3,7 @@ import { Bot } from 'lucide-react';
 
 const SKILLS = [
   { name: 'React', icon: <img src="https://cdn.simpleicons.org/react/white" width="14" alt="React" /> },
+  { name: 'Next.js', icon: <img src="https://cdn.simpleicons.org/nextdotjs/white" width="14" alt="Next.js" /> },
   { name: 'Node.js', icon: <img src="https://cdn.simpleicons.org/nodedotjs/white" width="14" alt="Node.js" /> },
   { name: 'JavaScript', icon: <img src="https://cdn.simpleicons.org/javascript/white" width="14" alt="JavaScript" /> },
   { name: 'TypeScript', icon: <img src="https://cdn.simpleicons.org/typescript/white" width="14" alt="TypeScript" /> },
@@ -16,6 +17,7 @@ const SKILLS = [
   { name: 'LangChain', icon: <img src="https://cdn.simpleicons.org/langchain/white" width="14" alt="LangChain" /> },
   { name: 'REST APIs', icon: <img src="https://cdn.simpleicons.org/postman/white" width="14" alt="REST APIs" /> },
   { name: 'Docker', icon: <img src="https://cdn.simpleicons.org/docker/white" width="14" alt="Docker" /> },
+  { name: 'AWS', icon: <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazonaws.svg" width="14" alt="AWS" style={{ filter: 'brightness(0) invert(1)' }} /> },
   { name: 'Linux', icon: <img src="https://cdn.simpleicons.org/linux/white" width="14" alt="Linux" /> },
 ];
 
